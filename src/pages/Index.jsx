@@ -33,12 +33,12 @@ const Index = () => {
   };
 
   return (
-    <Container maxW="container.xl">
-      <VStack spacing={4} align="stretch">
+    <Container maxW="container.xl" bgGradient="linear(to-r, gray.300, blue.400)" p={10} borderRadius="lg" boxShadow="base">
+      <VStack spacing={6} align="stretch">
         <Heading>Craft the Perfect Cold Email</Heading>
         <FormControl>
           <FormLabel>Upload a CSV file</FormLabel>
-          <Input type="file" accept=".csv" onChange={handleFileChange} />
+          <Input type="file" accept=".csv" onChange={handleFileChange} borderColor="blue.500" _hover={{ borderColor: "blue.600" }} />
         </FormControl>
         <FormControl>
           <FormLabel>Select the language</FormLabel>
@@ -66,7 +66,7 @@ const Index = () => {
             Spintax 3
           </Checkbox>
         </Box>
-        <Button leftIcon={<FaDownload />} colorScheme="blue" onClick={handleSubmit}>
+        <Button leftIcon={<FaDownload />} colorScheme="teal" onClick={handleSubmit} boxShadow="md" _hover={{ boxShadow: "lg" }}>
           Process
         </Button>
       </VStack>
