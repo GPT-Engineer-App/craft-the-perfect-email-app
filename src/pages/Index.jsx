@@ -38,7 +38,7 @@ const Index = () => {
         <Heading>Craft the Perfect Cold Email</Heading>
         <FormControl>
           <FormLabel>Upload a CSV file</FormLabel>
-          <Input type="file" accept=".csv" onChange={handleFileChange} borderColor="blue.500" _hover={{ borderColor: "blue.600" }} />
+          <Input type="file" accept=".csv" onChange={handleFileChange} borderColor="blue.500" _hover={{ borderColor: "blue.600" }} size="lg" variant="filled" p={2} bg="blue.500" color="white" _hover={{ bg: "blue.600" }} cursor="pointer" />
         </FormControl>
         <FormControl>
           <FormLabel>Select the language</FormLabel>
