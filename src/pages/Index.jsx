@@ -6,22 +6,22 @@ const Index = () => {
   const [file, setFile] = useState(null);
   const [language, setLanguage] = useState("en");
   const [variables, setVariables] = useState({
-    salutation: { checked: true, model: "", prompt: "" },
-    subjectline: { checked: false, model: "", prompt: "" },
-    spintax1: { checked: false, model: "", prompt: "" },
-    spintax2: { checked: false, model: "", prompt: "" },
-    spintax3: { checked: false, model: "", prompt: "" },
+    salutation: true,
+    subjectline: false,
+    spintax1: false,
+    spintax2: false,
+    spintax3: false,
   });
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
 
-  const handleCheckboxChange = (name) => {
-    setVariables((prev) => ({
-      ...prev,
-      [name]: { ...prev[name], checked: !prev[name].checked },
-    }));
+  const handleCheckboxChange = (event) => {
+    setVariables({
+      ...variables,
+      [event.target.name]: event.target.checked,
+    });
   };
 
   const handleSubmit = () => {
@@ -56,15 +56,9 @@ const Index = () => {
           <Checkbox name="subjectline" isChecked={variables.subjectline} onChange={handleCheckboxChange}>
             Subjectline
           </Checkbox>
-          <Checkbox name="spintax1" isChecked={variables.spintax1.checked} onChange={() => handleCheckboxChange("spintax1")}>
+          <Checkbox name="spintax1" isChecked={variables.spintax1} onChange={handleCheckboxChange}>
             Spintax 1
           </Checkbox>
-          {variables.spintax1.checked && (
-            <>
-              <Input placeholder="Model for Spintax 1" value={variables.spintax1.model} onChange={(e) => setVariables((prev) => ({ ...prev, spintax1: { ...prev.spintax1, model: e.target.value } }))} />
-              <Textarea placeholder="Prompt for Spintax 1" value={variables.spintax1.prompt} onChange={(e) => setVariables((prev) => ({ ...prev, spintax1: { ...prev.spintax1, prompt: e.target.value } }))} />
-            </>
-          )}
           <Checkbox name="spintax2" isChecked={variables.spintax2} onChange={handleCheckboxChange}>
             Spintax 2
           </Checkbox>
